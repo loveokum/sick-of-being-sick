@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Am So Sick of Being Sick - A Guide from the Heart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            color: #333;
+            background: #fafaf8;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2d3142;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2d3142;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffc47c;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5e6d3 0%, #e8d4c0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 196, 124, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-30px) translateX(-30px); }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #2d3142;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .heart {
+            font-size: 3rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            display: inline-block;
+            margin: 1rem 0;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.15); }
+            50% { transform: scale(1); }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #5a5a5a;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+
+        .hero .cta {
+            display: inline-flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-family: 'Georgia', serif;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #2d3142;
+            color: #f5e6d3;
+        }
+
+        .btn-primary:hover {
+            background: #1a1f2e;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #2d3142;
+            border: 2px solid #2d3142;
+        }
+
+        .btn-secondary:hover {
+            background: #2d3142;
+            color: #f5e6d3;
+            transform: translateY(-2px);
+        }
+
+        /* Cover Section */
+        .cover-showcase {
+            padding: 4rem 2rem;
+            background: #fff;
+            text-align: center;
+        }
+
+        .cover-showcase h2 {
+            font-size: 2rem;
+            color: #2d3142;
+            margin-bottom: 3rem;
+        }
+
+        .covers-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .book-cover {
+            width: 280px;
+            height: 430px;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .front-cover {
+            background: linear-gradient(135deg, #f5e6d3 0%, #e8d4c0 100%);
+            color: #2d3142;
+        }
+
+        .front-cover h3 {
+            font-size: 1.8rem;
+            line-height: 1.3;
+        }
+
+        .front-cover .heart {
+            font-size: 2rem;
+            display: block;
+            margin: 1rem 0;
+        }
+
+        .front-cover p {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #5a5a5a;
+        }
+
+        .back-cover {
+            background: linear-gradient(135deg, #2d3142 0%, #1a1f2e 100%);
+            color: #f5e6d3;
+        }
+
+        .back-cover h4 {
+            font-size: 0.85rem;
+            color: #ffc47c;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .back-cover p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        /* Book Content Section */
+        .book-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .book-content h2 {
+            font-size: 2.2rem;
+            color: #2d3142;
+            margin: 3rem 0 1.5rem 0;
+            border-bottom: 3px solid #ffc47c;
+            padding-bottom: 1rem;
+        }
+
+        .book-content h3 {
+            font-size: 1.5rem;
+            color: #2d3142;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .book-content p {
+            margin-bottom: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .book-content ul {
+            margin: 1rem 0 1rem 2rem;
+            color: #555;
+        }
+
+        .book-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+
+        .exercise-box {
+            background: #f0e8dd;
+            padding: 2rem;
+            border-left: 4px solid #ffc47c;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .exercise-box h4 {
+            color: #2d3142;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .exercise-box p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Author Section */
+        .author-section {
+            background: linear-gradient(135deg, #2d3142 0%, #1a1f2e 100%);
+            color: #f5e6d3;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .author-section h2 {
+            color: #ffc47c;
+            margin-bottom: 2rem;
+        }
+
+        .authors {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .author-bio {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .author-bio h3 {
+            color: #f5e6d3;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .author-bio p {
+            color: #d0d0d0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Resources Section */
+        .resources {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .resources h2 {
+            font-size: 2.2rem;
+            color: #2d3142;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #ffc47c;
+            padding-bottom: 1rem;
+        }
+
+        .resources-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-card h3 {
+            color: #ffc47c;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .resource-card .number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2d3142;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3142;
+            color: #f5e6d3;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-heart {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        /* Table of Contents */
+        .table-of-contents {
+            background: #f0e8dd;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+
+        .table-of-contents h3 {
+            color: #2d3142;
+            margin-bottom: 1.5rem;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(45, 49, 66, 0.1);
+        }
+
+        .toc-list li:last-child {
+            border-bottom: none;
+        }
+
+        .toc-list a {
+            color: #2d3142;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .toc-list a:hover {
+            color: #ffc47c;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .book-content {
+                padding: 2rem 1rem;
+            }
+
+            .book-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .authors {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">📖 I Am So Sick of Being Sick</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#book">Read</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#authors">Authors</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>I Am So Sick of Being Sick</h1>
+            <div class="heart">❤️</div>
+            <p>A gentle guide written from the heart, for anyone who's been there too.</p>
+            <p style="font-size: 1rem; font-style: normal;">By Zahra & Love</p>
+            <div class="cta">
+                <button class="btn btn-primary" onclick="document.getElementById('book').scrollIntoView({behavior: 'smooth'})">Start Reading</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('resources').scrollIntoView({behavior: 'smooth'})">Get Help Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cover Showcase -->
+    <section class="cover-showcase">
+        <h2>The Book</h2>
+        <div class="covers-container">
+            <div class="book-cover front-cover">
+                <div>✦</div>
+                <div>
+                    <h3>I Am So Sick of Being Sick</h3>
+                    <div class="heart">❤️</div>
+                    <p>A guide written from the heart</p>
+                </div>
+                <div>✦</div>
+            </div>
+            <div class="book-cover back-cover">
+                <div>
+                    <h4>From a Hospital Room to Your Heart</h4>
+                    <p>Written straight from a hospital bed, this book is a soft hand on your shoulder. A reminder that exhaustion is not laziness. That asking for help is strength.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Content -->
+    <section class="book-content" id="book">
+        <div class="table-of-contents">
+            <h3>📚 Table of Contents</h3>
+            <ul class="toc-list">
+                <li><a href="#chapter1">Chapter 1: Awareness - "I Don't Want to Live Like This Anymore"</a></li>
+                <li><a href="#chapter2">Chapter 2: Depression - "A Full-Time Job With No Benefits"</a></li>
+                <li><a href="#chapter3">Chapter 3: The Small Things - "Do One Thing and You're a Hero"</a></li>
+                <li><a href="#chapter4">Chapter 4: Movement - "A Walk, A Breath, A Small Step Forward"</a></li>
+                <li><a href="#chapter5">Chapter 5: Asking for Help - "The Bravest Thing You Can Do"</a></li>
+                <li><a href="#chapter6">Chapter 6: Your Space - "Cleaning Your Room (And Why It Actually Helps)"</a></li>
+                <li><a href="#chapter7">Chapter 7: It's Okay to Be Sick - "This Isn't Giving Up. This Is Waking Up."</a></li>
+                <li><a href="#chapter8">Chapter 8: Real Talk About Self-Love</a></li>
+                <li><a href="#chapter9">Chapter 9: When You Have a Bad Day</a></li>
+                <li><a href="#chapter10">Chapter 10: Your Future Self Is Counting On You</a></li>
+            </ul>
+        </div>
+
+        <h2 id="chapter1">Chapter 1: Awareness</h2>
+        <h3>"I Don't Want to Live Like This Anymore"</h3>
+        
+        <p>Here's the thing about being sick of being sick—it doesn't always announce itself with trumpets and fireworks.</p>
+
+        <p>Sometimes awareness shows up quietly. Like at 2 a.m. when you're staring at your ceiling, negotiating with the universe. <em>If I just sleep better tomorrow, everything will be fine. Right? Right?</em></p>
+
+        <p>Sometimes it's when you realize you've worn the same pajamas for three days straight and you're not even ashamed anymore—you're just tired.</p>
+
+        <p>Sometimes it's when Netflix asks "Are you still watching?" and you feel personally attacked by the judgment of a streaming service.</p>
+
+        <p>Sometimes it's simpler: You look in the mirror and think, <em>I don't recognize myself anymore.</em></p>
+
+        <p>But here's the real moment: It's when you whisper—maybe to yourself, maybe to the wall, maybe to your pet who doesn't judge—<strong>"I don't want to live like this anymore."</strong></p>
+
+        <p>And something shifts.</p>
+
+        <h3>What Awareness Actually Is</h3>
+
+        <p>Becoming aware that you're sick of being sick is NOT:</p>
+        <ul>
+            <li>Complaining</li>
+            <li>Giving up</li>
+            <li>Negative thinking</li>
+            <li>Weakness</li>
+            <li>Laziness</li>
+            <li>Being dramatic</li>
+        </ul>
+
+        <p><strong>What it actually is:</strong> Honesty. The real, raw, no-filter kind.</p>
+
+        <p>It's the moment you stop minimizing your pain. You stop saying "I'm fine" when you're not fine. You stop apologizing for needing rest. You stop carrying everyone else's comfort on your back while your own back is literally breaking.</p>
+
+        <p>You know that feeling when you finally admit you're not okay? When you stop fighting it? That's when healing can actually start.</p>
+
+        <h3>Two Levels of Being Sick</h3>
+
+        <p>Think of life like a video game (because depression is basically the hardest mode you never asked to unlock).</p>
+
+        <p><strong>Level 1: "My body hurts."</strong></p>
+        <ul>
+            <li>Your back aches</li>
+            <li>Your head pounds</li>
+            <li>Your energy is at zero</li>
+            <li>You're physically exhausted</li>
+        </ul>
+
+        <p><strong>Level 2: "I am so tired of MANAGING all of this."</strong></p>
+        <ul>
+            <li>Tired of explaining your symptoms to people who don't get it</li>
+            <li>Tired of planning around your bad days</li>
+            <li>Tired of researching treatments</li>
+            <li>Tired of scheduling appointments</li>
+            <li>Tired of adapting your life around symptoms you didn't even order</li>
+        </ul>
+
+        <div class="exercise-box">
+            <h4>✨ Mini-Exercise: What Have You Been Ignoring?</h4>
+            <p>Before we go further, take a moment. Ask yourself: <strong>What have I been pretending is fine when it's actually not?</strong> Write it down. Draw it. Describe it like you're explaining it to someone who gets it. You're already being brave just by reading this.</p>
+        </div>
+
+        <h2 id="chapter2">Chapter 2: Depression</h2>
+        <h3>"A Full-Time Job With No Benefits Package"</h3>
+
+        <p>Let's talk about depression. Not the Instagram version where everything is sad and poetic. The real version. The one that feels like your brain got a software update you didn't consent to.</p>
+
+        <p>Depression is exhausting. Not the "I need a nap" kind. This is the <em>"my soul needs a five-day vacation at a cottage by the sea while my body sleeps for 14 hours straight"</em> kind of tired.</p>
+
+        <p>It's like your brain is running:</p>
+        <ul>
+            <li>47 browser tabs you don't remember opening</li>
+            <li>3 programs that are frozen</li>
+            <li>An update you keep ignoring</li>
+            <li>A fan screaming like a jet engine</li>
+            <li>Battery stuck at 1%</li>
+        </ul>
+
+        <p>And yet—life still expects you to respond to texts, remember to eat, shower, and pretend to be a functioning adult.</p>
+
+        <h3>The Unexpected Job Offer</h3>
+
+        <p>One day you wake up. No warning. No interview. No onboarding packet. No congratulations balloons or "Welcome to the team!" email.</p>
+
+        <p>Just: <strong>"Boom. You're now the CEO of Trying to Function."</strong></p>
+
+        <p>Your job description? Managing exhaustion, explaining your symptoms to people who don't understand, pretending everything is fine, all while your body feels like it's moving through water.</p>
+
+        <p>And the worst part? You're on-call 24/7.</p>
+
+        <h3>Living With Depression Isn't Weakness</h3>
+
+        <p>Let me say that again because some of you need to hear it: <strong>Living with depression is not weakness. It is not a personality flaw. It is not laziness.</strong></p>
+
+        <p>It is your mind trying to carry too much for too long.</p>
+
+        <p>It's like you were handed a backpack that kept getting heavier, and somehow it became normal. Until one day you realize—this backpack is way too heavy, and your knees are buckling.</p>
+
+        <div class="exercise-box">
+            <h4>✨ Grounding Exercise: The 5 Senses Check-In</h4>
+            <p>When depression feels heavy, your brain loves getting pulled back to the present moment. Name one thing you can: <strong>See</strong> (look around, what catches your eye?), <strong>Touch</strong> (what texture is near you?), <strong>Hear</strong> (what's one sound you notice?), <strong>Smell</strong> (is there anything with a scent?), <strong>Taste</strong> (even gum, coffee, water—what's one flavor?)</p>
+        </div>
+
+        <h2 id="chapter3">Chapter 3: The Small Things</h2>
+        <h3>"Do One Thing and You're a Hero"</h3>
+
+        <p>Okay, this chapter is short on purpose. Because sometimes when you're sick of being sick, you need someone to tell you the truth:</p>
+
+        <p><strong>One small thing is enough.</strong></p>
+
+        <p>If all you did today was:</p>
+        <ul>
+            <li>Brush your teeth</li>
+            <li>Eat something</li>
+            <li>Drink water</li>
+            <li>Get out of bed</li>
+            <li>Send one text</li>
+            <li>Take a shower</li>
+            <li>Change your pajamas</li>
+            <li>Open the curtains</li>
+        </ul>
+
+        <p><strong>Congratulations. You are the CEO of Staying Alive. You win.</strong></p>
+
+        <p>You get the trophy. You get the medal. You get the invisible crown that only you know you're wearing.</p>
+
+        <p>Some days are better than other days. But every single day you wake up and think, <em>"Let's try again,"</em> that is strength. That is character development. That is progress.</p>
+
+        <h3>Why Small Things Actually Matter</h3>
+
+        <p>Here's what nobody tells you about depression: It doesn't care about your grand plans. It doesn't care that you were supposed to achieve great things today.</p>
+
+        <p>Depression just wants you to stay in bed. Forever.</p>
+
+        <p>So when you brush your teeth? You're not just brushing teeth. You're saying <strong>no to depression.</strong></p>
+
+        <p>When you drink water? You're choosing yourself.</p>
+
+        <p>When you get out of bed and sit by the window for five minutes? That's a revolution.</p>
+
+        <p>These aren't small things. They're radical acts of self-preservation.</p>
+
+        <h2 id="chapter4">Chapter 4: Movement</h2>
+        <h3>"A Walk, A Breath, A Small Step Forward"</h3>
+
+        <p>Okay, let's talk about moving your body when depression wants you to stay completely still.</p>
+
+        <p>First: <strong>You don't have to run a marathon. You don't have to do a 5 a.m. workout. You don't have to become a fitness influencer.</strong></p>
+
+        <p>You just have to move. A little. Without judgment.</p>
+
+        <h3>What Movement Actually Does</h3>
+
+        <p>When you move your body—even a tiny bit—something shifts. It's not magical. It's biology.</p>
+
+        <p>Your brain releases endorphins (the "feel-good" chemicals). Your body gets oxygen. Your nervous system calms down. It's like a tiny reset button.</p>
+
+        <p>But here's the thing: <strong>It doesn't have to be a lot.</strong></p>
+
+        <p>A five-minute walk counts. Stretching in your bed counts. Dancing in your room for one song counts. Standing up and sitting down counts.</p>
+
+        <h3>The Walk (But Make It Gentle)</h3>
+
+        <p>If you can do it: Take a walk.</p>
+
+        <p>Not because you have to. Not because society says "exercise is healthy." But because your brain and body might need it.</p>
+
+        <p>Walk to the end of the block. Walk around your house. Walk to get a glass of water. Walk to the mailbox.</p>
+
+        <p>Doesn't matter.</p>
+
+        <div class="exercise-box">
+            <h4>✨ Breathing Exercise: The 4-6 Technique</h4>
+            <p>Breathe in for 4 counts. Hold for 4 counts. Breathe out for 6 counts. Do this five times. Your nervous system loves this. It tells your body, "Hey, we're safe. We can relax now."</p>
+        </div>
+
+        <h2 id="chapter5">Chapter 5: Asking for Help</h2>
+        <h3>"The Bravest Thing You Can Do"</h3>
+
+        <p>Okay, this one might hurt a little. But you need to hear it.</p>
+
+        <p><strong>Saying "I need help" is not weakness. It's not failure. It's not giving up.</strong></p>
+
+        <p><strong>It's the bravest thing you can do.</strong></p>
+
+        <h3>Why Asking for Help Is Hard</h3>
+
+        <p>Most of us grew up thinking:</p>
+        <ul>
+            <li>"Strong people don't need help"</li>
+            <li>"I should be able to handle this alone"</li>
+            <li>"Asking for help means I'm broken"</li>
+            <li>"If I ask, people will judge me"</li>
+            <li>"I don't want to be a burden"</li>
+        </ul>
+
+        <p>All of that is a lie. Well-intentioned lies, but lies.</p>
+
+        <p><strong>Asking for help means:</strong></p>
+        <ul>
+            <li>You value your life</li>
+            <li>You believe things can get better</li>
+            <li>You trust yourself enough to be seen</li>
+            <li>You know your limits (which is actually really smart)</li>
+            <li>You're choosing yourself</li>
+        </ul>
+
+        <p>That's not weakness. That's wisdom.</p>
+
+        <h3>Therapy Isn't Magic (But It's Pretty Great)</h3>
+
+        <p>Let's be real: Therapy won't cure depression overnight.</p>
+
+        <p>It's not magic. It's work.</p>
+
+        <p>But here's what it does:</p>
+
+        <p>You get to talk to someone whose entire job is to listen. No judgment. No awkwardness. Just listening.</p>
+
+        <p>A therapist helps you understand why your brain does what it does. They teach you tools. They validate that what you're feeling is real.</p>
+
+        <p>Some days you'll leave therapy feeling worse (because you've processed hard stuff). Some days you'll leave feeling lighter.</p>
+
+        <p>Over time—and I mean months, not weeks—you start to feel different.</p>
+
+        <p>Not "cured." Just... better. More equipped. Less alone.</p>
+
+        <div class="exercise-box">
+            <h4>💬 What to Say When You Need Help</h4>
+            <p>Sometimes the hardest part is just saying it out loud. Here are some sentences you can use: <strong>"I'm not doing okay, and I need help."</strong> or <strong>"Can we talk? I'm struggling."</strong> or <strong>"I think I need to see a therapist."</strong> Pick one. Say it to someone you trust. And then breathe.</p>
+        </div>
+
+        <h2 id="chapter6">Chapter 6: Your Space</h2>
+        <h3>"Cleaning Your Room (And Why It Actually Helps)"</h3>
+
+        <p>This chapter is going to sound simple. Because it is. And sometimes simple is exactly what we need.</p>
+
+        <p><strong>Clean space = calmer brain.</strong></p>
+
+        <p>It's not magic. It's neuroscience. Your brain processes visual chaos, and all that processing makes you more exhausted.</p>
+
+        <p>So when you clean your room, you're not just cleaning. You're giving your brain permission to rest.</p>
+
+        <h3>Start Small (Like, Really Small)</h3>
+
+        <p>You don't have to clean your entire room today.</p>
+
+        <p>Pick one corner. Pick one shelf. Pick one category of stuff.</p>
+
+        <p>Today, you pick up all the water bottles. Tomorrow, maybe it's the clothes. The day after, the papers.</p>
+
+        <p>One thing at a time.</p>
+
+        <h3>What You're Actually Doing</h3>
+
+        <p>When you clean your room while you're depressed, you're not just tidying.</p>
+
+        <p>You're:</p>
+        <ul>
+            <li>Taking action</li>
+            <li>Choosing yourself</li>
+            <li>Creating a safer space</li>
+            <li>Telling depression: "You don't get to keep this mess"</li>
+            <li>Building momentum</li>
+        </ul>
+
+        <p>Clean sheets? That's self-care. Open windows? That's hope. Throwing away what doesn't serve you? That's boundary-setting.</p>
+
+        <div class="exercise-box">
+            <h4>✨ The "One Thing" Rule</h4>
+            <p>Every day, pick one small cleaning task: Make your bed. Toss five things you don't need. Put dirty clothes in one pile. Open the window for fresh air. Clear one surface. That's enough. That's actually a lot.</p>
+        </div>
+
+        <h2 id="chapter7">Chapter 7: It's Okay to Be Sick</h2>
+        <h3>"This Isn't Giving Up. This Is Waking Up."</h3>
+
+        <p>Let me tell you something: <strong>Being sick of being sick doesn't mean you're losing.</strong></p>
+
+        <p>It means you're finally honest about what's happening.</p>
+
+        <p>For so long, you probably told yourself:</p>
+        <ul>
+            <li>"I just need to push through"</li>
+            <li>"Other people have it worse"</li>
+            <li>"I should be able to handle this"</li>
+            <li>"Maybe if I just rest one more day..."</li>
+            <li>"I'm not sick enough to need help"</li>
+        </ul>
+
+        <p>And all of that exhausted you more.</p>
+
+        <h3>What Being Sick of Sick Actually Means</h3>
+
+        <p>It means:</p>
+        <ul>
+            <li>You're tired of pretending everything is fine</li>
+            <li>You're done minimizing your pain</li>
+            <li>You're ready for something different</li>
+            <li>You're not accepting this as permanent</li>
+            <li>You're choosing yourself</li>
+        </ul>
+
+        <p>That's not giving up. That's the opposite. That's fighting back.</p>
+
+        <h3>The Permission You Need</h3>
+
+        <p>Here's your permission slip:</p>
+
+        <p>You are allowed to not be okay. You are allowed to ask for help. You are allowed to rest without guilt. You are allowed to take medication. You are allowed to go to therapy. You are allowed to cancel plans. You are allowed to say no. You are allowed to prioritize your health over everyone else's comfort. You are allowed to be angry about being sick. You are allowed to feel sad about it. You are allowed to struggle.</p>
+
+        <p><strong>And you are still allowed to have hope.</strong></p>
+
+        <h3>The Healing Arc</h3>
+
+        <p>Here's what happens next (and this is the beautiful part):</p>
+
+        <p>You become sick of being sick. You decide to do something. Some days you do the thing. Some days you don't. Slowly, slowly, you start to feel different.</p>
+
+        <p>Not fixed. Not perfect. Just... lighter.</p>
+
+        <p>The fog doesn't disappear overnight, but you notice mornings where it's a little less thick. You have one good hour. Then two. Then a whole day. You forget to feel depressed for a second, and then remember, and that's okay.</p>
+
+        <p>You start to recognize yourself again.</p>
+
+        <p>And one day—maybe not today, but one day—you'll think: <em>"I feel like myself again."</em></p>
+
+        <p><strong>That day is coming. I promise.</strong></p>
+
+        <h2 id="chapter8">Chapter 8: Real Talk About Self-Love</h2>
+        <h3>"You're Not Selfish for Putting Yourself First"</h3>
+
+        <p>Self-love gets thrown around a lot. "Practice self-love!" "Self-care is important!" "You deserve to be happy!"</p>
+
+        <p>And sure, all of that is true.</p>
+
+        <p>But self-love when you're depressed looks different.</p>
+
+        <p>It doesn't look like bubble baths and face masks (though those are nice).</p>
+
+        <p>It looks like:</p>
+        <ul>
+            <li>Choosing sleep over productivity</li>
+            <li>Saying no without explaining yourself</li>
+            <li>Eating something even when you're not hungry</li>
+            <li>Asking for help even though it's hard</li>
+            <li>Skipping the shower one day and not hating yourself for it</li>
+            <li>Keeping the lights on when you want brightness</li>
+            <li>Texting your friend "I'm not okay" instead of pretending</li>
+            <li>Taking the medication your doctor prescribed</li>
+            <li>Crying when you need to</li>
+        </ul>
+
+        <p>That's self-love when you're sick. That's honoring what your body and mind need.</p>
+
+        <h3>Self-Love Isn't Selfish</h3>
+
+        <p>You might feel selfish for:</p>
+        <ul>
+            <li>Resting when you "should" be productive</li>
+            <li>Canceling plans</li>
+            <li>Saying no to things you don't have energy for</li>
+            <li>Prioritizing your mental health</li>
+        </ul>
+
+        <p>You're not selfish. You're surviving.</p>
+
+        <p>And there's a difference.</p>
+
+        <p>When you take care of yourself, you become better equipped to show up for others. Not the other way around.</p>
+
+        <h3>The Conversation With Yourself</h3>
+
+        <p>Start noticing what you say to yourself. If you're anything like most of us, it's rough. "You're lazy." "You're failing." "Everyone else can do this but you." "You're not good enough."</p>
+
+        <p>What if you talked to yourself like you talk to a friend who's struggling?</p>
+
+        <p>You'd never tell your best friend they're lazy for resting. You'd never tell them they're a failure for having a bad day.</p>
+
+        <p>So why tell yourself?</p>
+
+        <div class="exercise-box">
+            <h4>✨ Try This Today</h4>
+            <p>For one day, notice every time you're mean to yourself. Just notice. Then try saying the opposite. Not in a toxic-positivity way. Just... compassionately. "I'm having a hard time" instead of "I'm so weak." "I'm doing what I can" instead of "I'm not enough."</p>
+        </div>
+
+        <h2 id="chapter9">Chapter 9: When You Have a Bad Day</h2>
+        <h3>"Progress Isn't Linear, and That's Okay"</h3>
+
+        <p>Okay, real talk.</p>
+
+        <p>You're going to have bad days.</p>
+
+        <p>Days where all the tools you learned don't work. Days where depression wins. Days where you feel like you're back to square one.</p>
+
+        <p><strong>This doesn't mean you failed. This means you're human.</strong></p>
+
+        <h3>What a Bad Day Looks Like</h3>
+
+        <p>A bad day might be:</p>
+        <ul>
+            <li>You can't get out of bed</li>
+            <li>You cry for no reason (or for many reasons)</li>
+            <li>Everything feels pointless</li>
+            <li>You didn't brush your teeth</li>
+            <li>You didn't eat</li>
+            <li>You canceled plans</li>
+            <li>You isolate yourself</li>
+            <li>You feel hopeless</li>
+        </ul>
+
+        <p>And here's the thing: That's okay.</p>
+
+        <h3>You're Not Starting Over</h3>
+
+        <p>The most important thing to know: <strong>One bad day doesn't erase progress.</strong></p>
+
+        <p>You learned breathing exercises. You know about therapy. You understand self-love. You know you're not alone.</p>
+
+        <p>That knowledge doesn't disappear on a hard day. It's still there.</p>
+
+        <p>On the bad day, you might not feel like it's there. But it is.</p>
+
+        <p>It's like this: Imagine you're building a house. You place brick by brick. One day, it rains and you can't work. That doesn't mean the bricks you laid disappeared. They're still there.</p>
+
+        <p><strong>You're still building.</strong></p>
+
+        <h3>When Bad Days Turn Into Bad Weeks</h3>
+
+        <p>If one bad day becomes a bad week, or a bad week becomes a bad month—that's when you reach out.</p>
+
+        <p>Call your therapist. Text a friend. Go to your doctor. Go to the ER if you need to.</p>
+
+        <p>This isn't failure. This is recognizing that you need support.</p>
+
+        <p>Some people need ongoing medication adjustments. Some people need therapy intensified. Some people need hospitalization.</p>
+
+        <p>All of that is okay. All of that is taking care of yourself.</p>
+
+        <div class="exercise-box">
+            <h4>✨ What to Do on a Hard Day</h4>
+            <p><strong>Have a plan (make this when you're feeling okay):</strong> One person you'll text. One activity that helps. One grounding exercise. One thing you'll remind yourself of. On the hard day: Be gentle with yourself. Do something, even if it's small. Reach out if you need to. Remember this is temporary. Don't judge yourself.</p>
+        </div>
+
+        <h2 id="chapter10">Chapter 10: Your Future Self Is Counting On You</h2>
+        <h3>"This Isn't Forever"</h3>
+
+        <p>Okay, I'm going to say something that might sound impossible right now.</p>
+
+        <p><strong>You're going to feel better.</strong></p>
+
+        <p>Not tomorrow. Maybe not next week. But you will.</p>
+
+        <p>And I know that's hard to believe when you're in the thick of it. When the fog is so heavy you can't see two feet in front of you. When getting out of bed feels impossible.</p>
+
+        <p>But here's what I know: You're reading this. You're still here. You're looking for help.</p>
+
+        <p><strong>That's not nothing. That's everything.</strong></p>
+
+        <h3>What Your Future Self Wants You to Know</h3>
+
+        <p>Your future self—the one who's six months into healing, the one who has good days more often than bad days—wants you to know something.</p>
+
+        <p>They want you to know: <strong>"Keep going. It's worth it."</strong></p>
+
+        <p>Because one day, you're going to wake up and realize you didn't think about depression for a whole hour. Then a whole day. Then longer.</p>
+
+        <p>One day, you're going to laugh at something and realize you actually meant it.</p>
+
+        <p>One day, you're going to help someone else who's sick of being sick, and you're going to know exactly what to say because you've been there.</p>
+
+        <p>One day, you're going to look back at this moment and think: <em>"I'm so glad I didn't give up."</em></p>
+
+        <h3>Small Steps to a Bigger Future</h3>
+
+        <p>You don't need to figure out your whole life right now.</p>
+
+        <p>Just figure out today.</p>
+
+        <p>What's one small thing you can do today that your future self will thank you for?</p>
+
+        <p>Maybe it's calling a therapist. Texting one person. Drinking water. Taking a walk. Saying one kind thing to yourself. Just surviving the day.</p>
+
+        <p>Pick one. Do that.</p>
+
+        <p>Tomorrow, you get to pick again.</p>
+
+        <p><strong>This is how change happens. Not in giant leaps. In small, consistent steps.</strong></p>
+
+        <h3>The Promise</h3>
+
+        <p>This is my promise to you:</p>
+
+        <p><strong>This fog will lift.</strong></p>
+
+        <p>Not today, maybe. But it will.</p>
+
+        <p>You won't always feel this way. The small things will matter. They'll add up. They'll become big things.</p>
+
+        <p>You're stronger than depression. I know you don't believe me yet. But keep reading. Keep trying. Keep showing up.</p>
+
+        <p>And one day—I promise—you'll believe it too.</p>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources" id="resources">
+        <h2>Crisis Resources & Helplines</h2>
+        <p style="margin-bottom: 2rem; color: #666;">If you're in crisis or need immediate help, please reach out. These people are trained to help. It's okay to reach out. You deserve support.</p>
+        
+        <div class="resources-list">
+            <div class="resource-card">
+                <h3>🇺🇸 United States</h3>
+                <p><strong>National Suicide Prevention Lifeline</strong></p>
+                <div class="number">988</div>
+                <p>(call or text)</p>
+            </div>
+
+            <div class="resource-card">
+                <h3>🇨🇦 Canada</h3>
+                <p><strong>Suicide Prevention Service</strong></p>
+                <div class="number">1-833-456-4566</div>
+                <p>24/7 Support</p>
+            </div>
+
+            <div class="resource-card">
+                <h3>🇬🇧 United Kingdom</h3>
+                <p><strong>Samaritans</strong></p>
+                <div class="number">116 123</div>
+                <p>Available 24/7</p>
+            </div>
+
+            <div class="resource-card">
+                <h3>🇦🇺 Australia</h3>
+                <p><strong>Lifeline</strong></p>
+                <div class="number">13 11 14</div>
+                <p>24 hours, 7 days</p>
+            </div>
+
+            <div class="resource-card">
+                <h3>🇩🇪 Germany</h3>
+                <p><strong>Telefonseelsorge</strong></p>
+                <div class="number">0800-111 0111</div>
+                <p>or 0800-111 0222</p>
+            </div>
+
+            <div class="resource-card">
+                <h3>🇮🇳 India</h3>
+                <p><strong>iCall</strong></p>
+                <div class="number">9152987821</div>
+                <p>Mental Health Support</p>
+            </div>
+
+            <div class="resource-card">
+                <h3>🇲🇽 Mexico</h3>
+                <p><strong>Locatel</strong></p>
+                <div class="number">5255 9171</div>
+                <p>Crisis Support</p>
+            </div>
+
+            <div class="resource-card">
+                <h3>🇧🇷 Brazil</h3>
+                <p><strong>CVV (Centro de Valorização da Vida)</strong></p>
+                <div class="number">188</div>
+                <p>24/7 Support</p>
+            </div>
+
+            <div class="resource-card">
+                <h3>🇫🇷 France</h3>
+                <p><strong>SOS Amitié</strong></p>
+                <div class="number">01 45 39 40 00</div>
+                <p>Emotional Support</p>
+            </div>
+
+            <div class="resource-card">
+                <h3>🇪🇸 Spain</h3>
+                <p><strong>Teléfono de la Esperanza</strong></p>
+                <div class="number">024</div>
+                <p>or SMS Support</p>
+            </div>
+
+            <div class="resource-card">
+                <h3>🇳🇱 Netherlands</h3>
+                <p><strong>Telefoondiensten</strong></p>
+                <div class="number">113</div>
+                <p>Mental Health Crisis</p>
+            </div>
+        </div>
+
+        <div class="exercise-box" style="margin-top: 3rem;">
+            <h4>💙 You Are Not Alone</h4>
+            <p>If you're reading this and struggling, know that reaching out is not weakness—it's wisdom. These services exist because people care about you and want to help. Your life matters. You matter. Please reach out.</p>
+        </div>
+    </section>
+
+    <!-- Authors Section -->
+    <section class="author-section" id="authors">
+        <h2>About the Authors</h2>
+        <div class="authors">
+            <div class="author-bio">
+                <h3>✨ Zahra</h3>
+                <p>A writer and advocate who understands what it means to be sick of being sick. Written from lived experience, Zahra brings honesty, humor, and hope to these pages. Zahra believes that vulnerability is strength, and that sharing our stories saves lives.</p>
+            </div>
+            <div class="author-bio">
+                <h3>❤️ Love</h3>
+                <p>A compassionate voice dedicated to mental health awareness and self-compassion. Love brings warmth and authenticity to every word, reminding readers that they deserve kindness—especially from themselves. Love's mission is to make healing feel less lonely.</p>
+            </div>
+        </div>
+        <p style="margin-top: 2rem; font-style: italic;">This book was written from a hospital room, from a place of exhaustion and honesty, for anyone who's wondered if things could be different. ❤️</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>📖 <strong>I Am So Sick of Being Sick</strong></p>
+        <p>A guide written from the heart, by Zahra & Love</p>
+        <div class="footer-heart">❤️</div>
+        <p style="margin-top: 2rem; font-size: 0.9rem;">This book was created with love and hope. You are seen. You are heard. You matter.</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.8;">If you're struggling, please reach out to one of the resources above. You don't have to do this alone.</p>
+        <p style="margin-top: 2rem; font-size: 0.85rem;">© 2024 Zahra & Love. Made with ❤️</p>
+    </footer>
+</body>
+</html>
